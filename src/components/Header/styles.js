@@ -28,5 +28,6 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex', justifyContent: 'space-between',
+    backgroundColor: '#054441', // Setting the background color to green
   },
 }));

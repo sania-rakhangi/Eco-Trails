@@ -44,7 +44,7 @@ const List = () => {
                 <Grid item key = {i} xs={12}>
                     <PlaceDetails place = {place}/>
                 </Grid>
-            )
+            
             ))}
         </Grid>
 

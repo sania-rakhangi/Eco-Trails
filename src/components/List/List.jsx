@@ -1,54 +1,65 @@
-import React, { useState } from 'react';
-import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
-
-import PlaceDetails from '../PlaceDetails/PlaceDetails';
-
-import useStyles from './styles';
- 
+import React from 'react';
+import styles from './styles.module.css';
 
 const List = () => {
-
-    const classes = useStyles();
-    const [type, setType] = useState('restaurants');
-    const [rating, setRating] = useState('restaurants');
-
-    const places = [{ name: 'cool place'} , 
-                    { name: 'hot place'},
-                    { name: 'nice place'},
-                ];
-
     return (
-      <div className= {classes.constainer}>
-        <Typography variant="h4">Restaurants, Hotels and attractions around you</Typography>
-        <FormControl className = {classes.FormControl}>
-            <InputLabel>Type</InputLabel>
-            <Select value={type} onChange={(e)=> setType(e.target.value)}>
-                <MenuItem value = "restaurants">restaurants</MenuItem>
-                <MenuItem value = "hotes">hotels</MenuItem>
-                <MenuItem value = "attractions">attractions</MenuItem>
-            </Select>
-        </FormControl>
-
-        <FormControl className = {classes.FormControl}>
-            <InputLabel>Rating</InputLabel>
-            <Select value={rating} onChange={(e)=> setRating(e.target.value)}>
-                <MenuItem value = {0}>All</MenuItem>
-                <MenuItem value = {3}>Above 3.0</MenuItem>
-                <MenuItem value = {4}>Above 4.0</MenuItem>
-                <MenuItem value = {4.5}>Above 4.5</MenuItem>
-            </Select>
-        </FormControl>
+        <div className = {styles.sidebar}>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" />
+        <br/>
+        <div className = {styles.tab}>
+            <button className = {styles.button} ><i className="material-symbols-outlined">directions_car</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">two_wheeler</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">directions_bus</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">train</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">directions_walk</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">directions_bike</i></button>
+            <button className = {styles.button} ><i className="material-symbols-outlined">flight</i></button>
+        </div>
+        <br/>
+        <div className = {styles.middle}>
+            <div className = {styles.icons}>
+                <i className="material-symbols-outlined">circle</i>
+                <i className="material-symbols-outlined">more_vert</i>
+                <i className="material-symbols-outlined" id="location">location_on</i>
+            </div>
+            <div className = {styles.search}>
+                <input type="text" placeholder="Starting point" className={styles.input}/>
+                <br/>
+                <input type="text" placeholder="Destination" className={styles.input}/>
+            </div>
+            <div className = {styles.swap}>
+                <button className = {styles.button}><i className="material-symbols-outlined">swap_vert</i></button>
+            </div>
+        </div>
+        <br/>
+        <div className = {styles.info}>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">barefoot</i>
+                <p>Carbon Footprint: <br/><b>41g</b></p>
+            </div>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">monetization_on</i>
+                <p>Cost of Travel: <br/><b>₹200</b></p>
+            </div>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">schedule</i>
+                <p>Time Taken: <br/><b>30 min</b></p>
+            </div>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">mode_of_travel</i>
+                <p>Suggested Mode of Travel: <br/><b>Train</b></p>
+            </div>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">trending_down</i>
+                <p>Decrese in Carbon Emissions: <br/><b>24%</b></p>
+            </div>
+            <div className = {styles.properties}>
+                <i className="material-symbols-outlined">database</i>
+                <p>Coins Earned: <br/><b>10</b></p>
+            </div>
+        </div>
         
-        <Grid constainer spacing={3} className={classes.list}>
-            {places?.map((place, i) => (
-                <Grid item key = {i} xs={12}>
-                    <PlaceDetails place = {place}/>
-                </Grid>
-            
-            ))}
-        </Grid>
-
-      </div>
+    </div>
 
     );
 }
